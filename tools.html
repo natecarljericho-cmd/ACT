@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools - Collaborative Tools</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Collaborative Tools</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="tools.html" class="nav-link active">Tools</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="tools-header">
+            <h2>Our Tools</h2>
+            <p>Interactive utilities designed to make your life easier</p>
+        </section>
+
+        <div class="tools-grid">
+            <!-- Tool 1: Calculator -->
+            <div class="tool-card">
+                <h3>Calculator</h3>
+                <div class="tool-content">
+                    <input type="text" id="calcDisplay" class="calc-display" readonly>
+                    <div class="calculator">
+                        <button class="calc-btn" onclick="appendToCalc('7')">7</button>
+                        <button class="calc-btn" onclick="appendToCalc('8')">8</button>
+                        <button class="calc-btn" onclick="appendToCalc('9')">9</button>
+                        <button class="calc-btn operator" onclick="appendToCalc('/')">/</button>
+                        
+                        <button class="calc-btn" onclick="appendToCalc('4')">4</button>
+                        <button class="calc-btn" onclick="appendToCalc('5')">5</button>
+                        <button class="calc-btn" onclick="appendToCalc('6')">6</button>
+                        <button class="calc-btn operator" onclick="appendToCalc('*')">*</button>
+                        
+                        <button class="calc-btn" onclick="appendToCalc('1')">1</button>
+                        <button class="calc-btn" onclick="appendToCalc('2')">2</button>
+                        <button class="calc-btn" onclick="appendToCalc('3')">3</button>
+                        <button class="calc-btn operator" onclick="appendToCalc('-')">-</button>
+                        
+                        <button class="calc-btn" onclick="appendToCalc('0')">0</button>
+                        <button class="calc-btn" onclick="appendToCalc('.')">.</button>
+                        <button class="calc-btn equals" onclick="calculateResult()">=</button>
+                        <button class="calc-btn operator" onclick="appendToCalc('+')">+</button>
+                    </div>
+                    <button class="reset-btn" onclick="clearCalc()">Clear</button>
+                </div>
+            </div>
+
+            <!-- Tool 2: Unit Converter -->
+            <div class="tool-card">
+                <h3>Unit Converter</h3>
+                <div class="tool-content">
+                    <div class="converter-section">
+                        <label>Select Conversion Type:</label>
+                        <select id="conversionType" onchange="updateConversionUnits()">
+                            <option value="length">Length (m, km, mi, ft)</option>
+                            <option value="weight">Weight (kg, lb, oz, g)</option>
+                            <option value="temperature">Temperature (°C, °F, K)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="converter-section">
+                        <label>From:</label>
+                        <input type="number" id="fromValue" placeholder="Enter value" onchange="convertUnit()">
+                        <select id="fromUnit" onchange="convertUnit()">
+                            <option value="m">Meter</option>
+                            <option value="km">Kilometer</option>
+                            <option value="mi">Mile</option>
+                            <option value="ft">Foot</option>
+                        </select>
+                    </div>
+                    
+                    <div class="converter-section">
+                        <label>To:</label>
+                        <input type="text" id="toValue" placeholder="Result" readonly>
+                        <select id="toUnit" onchange="convertUnit()">
+                            <option value="m">Meter</option>
+                            <option value="km">Kilometer</option>
+                            <option value="mi">Mile</option>
+                            <option value="ft">Foot</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 3: Text Editor -->
+            <div class="tool-card">
+                <h3>Text Editor</h3>
+                <div class="tool-content">
+                    <textarea id="textInput" placeholder="Enter your text here..." rows="8"></textarea>
+                    <div class="text-tools">
+                        <button onclick="textToUpperCase()" class="tool-btn">UPPERCASE</button>
+                        <button onclick="textToLowerCase()" class="tool-btn">lowercase</button>
+                        <button onclick="textCapitalize()" class="tool-btn">Capitalize</button>
+                        <button onclick="textReverse()" class="tool-btn">Reverse</button>
+                        <button onclick="countWords()" class="tool-btn">Word Count</button>
+                        <button onclick="clearText()" class="tool-btn">Clear</button>
+                    </div>
+                    <div class="text-stats">
+                        <p>Characters: <span id="charCount">0</span></p>
+                        <p>Words: <span id="wordCount">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About</h4>
+                <p>Collaborative Tools is a student project dedicated to providing useful utilities for everyday tasks.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:contact@collaborativetools.com">contact@collaborativetools.com</a></p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Collaborative Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/tools.js"></script>
+</body>
+</html>
